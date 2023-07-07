@@ -18,6 +18,7 @@ extents = Vector2( 512, 10 )
 script = ExtResource( 4 )
 
 [node name="PlacementUI" parent="." instance=ExtResource( 5 )]
+position = Vector2( 512, 256 )
 
 [node name="Paddle" parent="." instance=ExtResource( 2 )]
 position = Vector2( 471, 511 )

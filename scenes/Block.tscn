@@ -3,7 +3,7 @@
 [ext_resource path="res://scripts/Block.gd" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 40, 10 )
+extents = Vector2( 46, 11.25 )
 
 [node name="Block" type="StaticBody2D" groups=["block"]]
 script = ExtResource( 1 )
