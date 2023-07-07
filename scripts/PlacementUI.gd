@@ -31,5 +31,5 @@ func _physics_process(delta):
 
 func _input(event):
 	if event.is_action_pressed("left_click"):
-		emit_signal("block_placed", guide_block.get_global_position())
+		emit_signal("block_placed", guide_block.get_position())
 

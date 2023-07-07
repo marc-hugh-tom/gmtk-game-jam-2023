@@ -13,7 +13,7 @@ func _ready():
 
 func _add_block(position):
 	var new_block = BlockFactory.instance()
-	new_block.position = position
+	new_block.position = position + $PlacementUI.position
 	blocks_parent.add_child(new_block)
 
 func _process(delta):

@@ -4,7 +4,7 @@ var direction = Vector2.ZERO
 var speed = 200.0
 
 func _ready():
-	direction = Vector2(0.5, 0.5) 
+	direction = Vector2(-0.5, 0.5) 
 
 func _physics_process(delta):
 	var collision = move_and_collide(
