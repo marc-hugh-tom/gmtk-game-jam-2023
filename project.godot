@@ -11,8 +11,12 @@ config_version=4
 [application]
 
 config/name="gmtk-game-jam-2023"
-run/main_scene="res://GameState.tscn"
+run/main_scene="res://scenes/GameState.tscn"
 config/icon="res://icon.png"
+
+[global]
+
+gravit=false
 
 [gui]
 
@@ -21,6 +25,8 @@ common/drop_mouse_on_gui_input_disabled=true
 [physics]
 
 common/enable_pause_aware_picking=true
+2d/default_gravity=0
+2d/default_gravity_vector=Vector2( 0, 0 )
 
 [rendering]
 
