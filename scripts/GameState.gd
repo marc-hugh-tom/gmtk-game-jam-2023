@@ -7,7 +7,7 @@ onready var ball = get_node("balls/Ball")
 const BlockFactory = preload("res://scenes/Block.tscn")
 
 func _ready():
-	pass
+	$PlacementUI.connect("block_placed", self, "_add_block")
 	#for position in _get_potential_block_placement_positions():
 	#	_add_block(position)
 
