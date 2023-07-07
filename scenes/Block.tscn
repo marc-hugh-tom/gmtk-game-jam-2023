@@ -3,7 +3,7 @@
 [ext_resource path="res://scripts/Block.gd" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 46, 11.25 )
+extents = Vector2( 40, 10 )
 
 [node name="Block" type="StaticBody2D" groups=["block"]]
 script = ExtResource( 1 )
@@ -12,8 +12,8 @@ script = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_left = -46.0
-margin_top = -11.0
-margin_right = 46.0
-margin_bottom = 11.0
+margin_left = -40.0
+margin_top = -10.0
+margin_right = 40.0
+margin_bottom = 10.0
 color = Color( 0.929412, 0.552941, 0.32549, 1 )
