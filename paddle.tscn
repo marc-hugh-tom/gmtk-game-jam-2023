@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 8.0
+height = 76.0
+
+[node name="Paddle" type="KinematicBody2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -46.0
+margin_top = -8.0
+margin_right = 46.0
+margin_bottom = 8.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource( 1 )
