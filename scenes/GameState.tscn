@@ -1,12 +1,15 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/Ball.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Paddle.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Block.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scripts/GameState.gd" type="Script" id=4]
+[ext_resource path="res://scenes/PlacementUI.tscn" type="PackedScene" id=5]
 
 [node name="GameState" type="Node2D"]
 script = ExtResource( 4 )
+
+[node name="PlacementUI" parent="." instance=ExtResource( 5 )]
 
 [node name="Paddle" parent="." instance=ExtResource( 2 )]
 position = Vector2( 471, 511 )
@@ -19,13 +22,13 @@ position = Vector2( 511, 383 )
 [node name="blocks" type="Node2D" parent="."]
 
 [node name="Block" parent="blocks" instance=ExtResource( 3 )]
-position = Vector2( 125, 97 )
+position = Vector2( 113, 89 )
 
 [node name="Block2" parent="blocks" instance=ExtResource( 3 )]
-position = Vector2( 240, 100 )
+position = Vector2( 228, 92 )
 
 [node name="Block3" parent="blocks" instance=ExtResource( 3 )]
-position = Vector2( 357, 102 )
+position = Vector2( 345, 94 )
 
 [node name="Block4" parent="blocks" instance=ExtResource( 3 )]
-position = Vector2( 679, 393 )
+position = Vector2( 473, 95 )
