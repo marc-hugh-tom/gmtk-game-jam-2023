@@ -6,13 +6,13 @@
 [ext_resource path="res://scenes/Paddle.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 10, 300 )
+extents = Vector2( 10, 270 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 10, 300 )
+extents = Vector2( 10, 270 )
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 512, 10 )
+extents = Vector2( 450, 10 )
 
 [node name="GameContainer" type="Node2D"]
 script = ExtResource( 1 )
@@ -32,19 +32,19 @@ position = Vector2( 347, 237 )
 [node name="left" type="StaticBody2D" parent="Walls"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/left"]
-position = Vector2( 75, 300 )
+position = Vector2( 75, 330 )
 shape = SubResource( 2 )
 
 [node name="right" type="StaticBody2D" parent="Walls"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/right"]
-position = Vector2( 955, 300 )
+position = Vector2( 955, 330 )
 shape = SubResource( 3 )
 
 [node name="top" type="StaticBody2D" parent="Walls"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/top"]
-position = Vector2( 512, 50 )
+position = Vector2( 515, 50 )
 shape = SubResource( 1 )
 
 [node name="PlacementUI" parent="." instance=ExtResource( 3 )]
