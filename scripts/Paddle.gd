@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 var direction = Vector2.ZERO
-var speed = 400.0
+var speed = 3.0
 
 var ball_position = null
 
@@ -12,10 +12,14 @@ func set_ball_position(pos):
 
 func _physics_process(delta):
 	if ball_position != null:
-		var y = position.y
-		position = position.linear_interpolate(ball_position, 4.0 * delta)
-		position.y = y 
+		var prev = position
+		var new_position = position.linear_interpolate(ball_position, 4.0 * delta)
+		new_position.y = prev.y
 	
+		var diff = clamp(new_position.x - position.x, -speed, speed)
+		position.x += diff
+		direction = Vector2(diff, 0)
+
 	if DEBUG:
 		direction = Vector2.ZERO
 		if Input.is_action_pressed("ui_left"):
@@ -24,3 +28,6 @@ func _physics_process(delta):
 			direction += Vector2(1, 0)
 	
 		position += direction.normalized() * speed * delta
+
+func on_collide_with_ball(ball, collision):
+	ball.tweak_direction((collision.get_normal() * 2) + direction)
