@@ -20,4 +20,36 @@ wait_time = 20.0
 one_shot = true
 autostart = true
 
+[node name="CurrentLabel" type="Label" parent="."]
+margin_left = 936.0
+margin_top = 240.0
+margin_right = 994.0
+margin_bottom = 254.0
+text = "CURRENT"
+
+[node name="Current" type="Node2D" parent="."]
+position = Vector2( 962, 280 )
+
+[node name="CurrentDescription" type="Label" parent="."]
+margin_left = 924.0
+margin_top = 307.0
+margin_right = 964.0
+margin_bottom = 321.0
+
+[node name="NextLabel" type="Label" parent="."]
+margin_left = 940.0
+margin_top = 367.0
+margin_right = 980.0
+margin_bottom = 381.0
+text = "NEXT"
+
+[node name="Next" type="Node2D" parent="."]
+position = Vector2( 961, 415 )
+
+[node name="NextDescription" type="Label" parent="."]
+margin_left = 925.0
+margin_top = 445.0
+margin_right = 965.0
+margin_bottom = 459.0
+
 [connection signal="timeout" from="WinCountdownTimer" to="." method="_on_WinCountdownTimer_timeout"]

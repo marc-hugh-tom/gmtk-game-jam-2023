@@ -1,5 +1,7 @@
 extends Node2D
 
+signal current_block_changed
+
 var BLOCK_TYPES = [
 	[
 		preload("res://scenes/BlockBasic.tscn"),
@@ -44,6 +46,7 @@ func get_next_block():
 func current_block_used():
 	current_block = next_block
 	next_block = get_next_block()
+	emit_signal("current_block_changed")
 
 func get_placement_timer_proportion():
 	return(($PlacementTimer.wait_time - $PlacementTimer.time_left) / $PlacementTimer.wait_time)
