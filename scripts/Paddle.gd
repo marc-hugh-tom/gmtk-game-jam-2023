@@ -12,7 +12,9 @@ func set_ball_position(pos):
 
 func _physics_process(delta):
 	if ball_position != null:
-		position.x = lerp(position.x, ball_position.x, 0.7)
+		var y = position.y
+		position = position.linear_interpolate(ball_position, 4.0 * delta)
+		position.y = y 
 	
 	if DEBUG:
 		direction = Vector2.ZERO
