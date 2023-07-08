@@ -44,3 +44,12 @@ func get_next_block():
 func current_block_used():
 	current_block = next_block
 	next_block = get_next_block()
+
+func get_placement_timer_proportion():
+	return(($PlacementTimer.wait_time - $PlacementTimer.time_left) / $PlacementTimer.wait_time)
+
+func start_placement_timer():
+	$PlacementTimer.start()
+
+func get_placement_timer():
+	return($PlacementTimer)

@@ -1,3 +1,35 @@
-[gd_scene format=2]
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/sprites/cursor_ring.png" type="Texture" id=1]
+[ext_resource path="res://scripts/Cursor.gd" type="Script" id=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform float t : hint_range(0.0, 1.0);
+const float PI = 3.14159265358979323846;
+
+void fragment()
+{
+	vec4 col = texture(TEXTURE, UV);
+
+	float angle = atan(UV.x - 0.5, UV.y - 0.5);
+
+	if (angle + PI >= ((1.0 - t) * 2.0 * PI)) {
+		COLOR = col;
+	} else {
+		COLOR = vec4(0.0);
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/t = 0.0
 
 [node name="Cursor" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Ring" type="Sprite" parent="."]
+material = SubResource( 2 )
+texture = ExtResource( 1 )
