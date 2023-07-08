@@ -16,7 +16,7 @@ func set_ball_position(pos):
 func _physics_process(delta):
 	if ball_position != null and !DEBUG:
 		var y = position.y
-		position = position.linear_interpolate(ball_position, 4.0 * delta)
+		var new_position = position.linear_interpolate(ball_position, 4.0 * delta)
 		position.y = y 
 	
 		var diff = clamp(new_position.x - position.x, -speed, speed)
