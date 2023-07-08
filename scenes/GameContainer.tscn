@@ -69,6 +69,3 @@ margin_bottom = 16.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/top"]
 shape = SubResource( 1 )
-
-[node name="PlacementUI" parent="." instance=ExtResource( 3 )]
-position = Vector2( 512, 256 )
