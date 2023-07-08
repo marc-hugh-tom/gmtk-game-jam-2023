@@ -74,6 +74,6 @@ func _init_starting_blocks():
 func get_block_count():
 	var count = 0
 	for child in get_children():
-		if is_instance_valid(child) and child.is_in_group("block"):
+		if is_instance_valid(child) and child.is_in_group("ball_collidable"):
 			count += 1
 	return(count)
