@@ -70,3 +70,10 @@ func _init_starting_blocks():
 	for col_idx in range(COLUMNS):
 		for row_idx in range(ROWS):
 			add_block(Vector2(col_idx, row_idx))
+
+func get_block_count():
+	var count = 0
+	for child in get_children():
+		if is_instance_valid(child) and child.is_in_group("block"):
+			count += 1
+	return(count)
