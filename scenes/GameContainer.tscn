@@ -35,6 +35,9 @@ position = Vector2( 471, 511 )
 [node name="Ball" parent="balls" instance=ExtResource( 2 )]
 position = Vector2( 472, 492 )
 
+[node name="Ball2" parent="balls" instance=ExtResource( 2 )]
+position = Vector2( 664, 104 )
+
 [node name="BlockGrid" type="Node2D" parent="."]
 position = Vector2( 512, 256 )
 script = ExtResource( 5 )
