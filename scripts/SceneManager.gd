@@ -3,6 +3,7 @@ extends Node2D
 const menu_scene = preload("res://scenes/MainMenu.tscn")
 const credits_scene = preload("res://scenes/Credits.tscn")
 const win_scene = preload("res://scenes/Win.tscn")
+const lose_scene = preload("res://scenes/Lose.tscn")
 const scene_transition = preload("res://scenes/SceneTransition.tscn")
 const game_scene = preload("res://scenes/GameState.tscn")
 
@@ -20,6 +21,7 @@ func deferred_start_level():
 	clear_scene()
 	var game = game_scene.instance()
 	game.connect("win", self, "start_win_screen")
+	game.connect("lose", self, "start_lose_screen")
 	add_child(game)
 	initiate_fade_to_transparent("remove_transition_overlay")
 
@@ -58,6 +60,18 @@ func deferred_start_win_screen():
 	var win = win_scene.instance()
 	win.connect("start_menu", self, "start_menu")
 	add_child(win)
+	initiate_fade_to_transparent("remove_transition_overlay")
+
+# LoseScreen
+func start_lose_screen():
+	if not has_node("SceneTransition"):
+		initiate_fade_to_black("deferred_start_lose_screen")
+
+func deferred_start_lose_screen():
+	clear_scene()
+	var lose = lose_scene.instance()
+	lose.connect("start_menu", self, "start_menu")
+	add_child(lose)
 	initiate_fade_to_transparent("remove_transition_overlay")
 
 # Transition functions

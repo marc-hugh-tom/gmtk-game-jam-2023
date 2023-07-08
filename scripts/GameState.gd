@@ -4,6 +4,7 @@ onready var timer_label = $TimerLabel
 onready var win_countdown_timer = $WinCountdownTimer
 
 signal win
+signal lose
 
 func _ready():
 	$GameContainer.connect("no_blocks", self, "_no_blocks_callback")
@@ -18,4 +19,4 @@ func _on_WinCountdownTimer_timeout():
 	emit_signal("win")
 
 func _no_blocks_callback():
-	print("lose")
+	emit_signal("lose")
