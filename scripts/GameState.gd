@@ -23,11 +23,11 @@ func _no_blocks_callback():
 	emit_signal("lose")
 
 func current_block_changed():
-	for child in $Current.get_children():
+	for child in $CurrentContainer/Container/Current.get_children():
 		child.queue_free()
-	$Current.add_child(Globals.current_block[0].instance())
-	$CurrentDescription.text = Globals.current_block[1]
-	for child in $Next.get_children():
+	$CurrentContainer/Container/Current.add_child(Globals.current_block[0].instance())
+	$CurrentContainer/CurrentDescription.text = Globals.current_block[1]
+	for child in $NextContainer/Container/Next.get_children():
 		child.queue_free()
-	$Next.add_child(Globals.next_block[0].instance())
-	$NextDescription.text = Globals.next_block[1]
+	$NextContainer/Container/Next.add_child(Globals.next_block[0].instance())
+	$NextContainer/NextDescription.text = Globals.next_block[1]

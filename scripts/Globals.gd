@@ -5,12 +5,12 @@ signal current_block_changed
 var BLOCK_TYPES = [
 	[
 		preload("res://scenes/BlockBasic.tscn"),
-		"Rubbish block",
+		"Rubbish\nblock",
 		1.0
 	],
 	[
 		preload("res://scenes/BlockTough.tscn"),
-		"Better block",
+		"Better\nblock",
 		0.5
 	]
 ]

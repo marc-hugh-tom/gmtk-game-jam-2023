@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/GameContainer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/GameState.gd" type="Script" id=2]
+[ext_resource path="res://scenes/theme.tres" type="Theme" id=3]
 
 [sub_resource type="Theme" id=1]
 
@@ -9,7 +10,7 @@
 font_path = "res://assets/fonts/LCD14.otf"
 
 [sub_resource type="DynamicFont" id=2]
-size = 19
+size = 26
 font_data = SubResource( 3 )
 
 [node name="GameState" type="Node2D"]
@@ -21,8 +22,8 @@ position = Vector2( -65, 0 )
 [node name="TimerLabel" type="Label" parent="."]
 margin_left = 912.0
 margin_top = 91.0
-margin_right = 1080.0
-margin_bottom = 111.0
+margin_right = 1077.0
+margin_bottom = 148.0
 theme = SubResource( 1 )
 custom_fonts/font = SubResource( 2 )
 
@@ -31,36 +32,63 @@ wait_time = 20.0
 one_shot = true
 autostart = true
 
-[node name="CurrentLabel" type="Label" parent="."]
-margin_left = 936.0
-margin_top = 240.0
-margin_right = 994.0
-margin_bottom = 254.0
+[node name="CurrentContainer" type="VBoxContainer" parent="."]
+margin_left = 916.0
+margin_top = 227.0
+margin_right = 1007.0
+margin_bottom = 299.0
+
+[node name="CurrentLabel" type="Label" parent="CurrentContainer"]
+margin_right = 91.0
+margin_bottom = 17.0
+theme = ExtResource( 3 )
+theme_type_variation = "small"
 text = "CURRENT"
 
-[node name="Current" type="Node2D" parent="."]
-position = Vector2( 962, 280 )
+[node name="Container" type="Control" parent="CurrentContainer"]
+margin_top = 21.0
+margin_right = 91.0
+margin_bottom = 51.0
+rect_min_size = Vector2( 30, 30 )
 
-[node name="CurrentDescription" type="Label" parent="."]
-margin_left = 924.0
-margin_top = 307.0
-margin_right = 964.0
-margin_bottom = 321.0
+[node name="Current" type="Node2D" parent="CurrentContainer/Container"]
+position = Vector2( 43, 13 )
 
-[node name="NextLabel" type="Label" parent="."]
-margin_left = 940.0
-margin_top = 367.0
-margin_right = 980.0
-margin_bottom = 381.0
+[node name="CurrentDescription" type="Label" parent="CurrentContainer"]
+margin_top = 55.0
+margin_right = 91.0
+margin_bottom = 72.0
+theme = ExtResource( 3 )
+theme_type_variation = "small"
+
+[node name="NextContainer" type="VBoxContainer" parent="."]
+margin_left = 911.0
+margin_top = 368.0
+margin_right = 1002.0
+margin_bottom = 440.0
+theme = ExtResource( 3 )
+
+[node name="NextLabel" type="Label" parent="NextContainer"]
+margin_right = 91.0
+margin_bottom = 17.0
+theme = ExtResource( 3 )
+theme_type_variation = "small"
 text = "NEXT"
 
-[node name="Next" type="Node2D" parent="."]
-position = Vector2( 961, 415 )
+[node name="Container" type="Control" parent="NextContainer"]
+margin_top = 21.0
+margin_right = 91.0
+margin_bottom = 51.0
+rect_min_size = Vector2( 30, 30 )
 
-[node name="NextDescription" type="Label" parent="."]
-margin_left = 925.0
-margin_top = 445.0
-margin_right = 965.0
-margin_bottom = 459.0
+[node name="Next" type="Node2D" parent="NextContainer/Container"]
+position = Vector2( 43, 13 )
+
+[node name="NextDescription" type="Label" parent="NextContainer"]
+margin_top = 55.0
+margin_right = 91.0
+margin_bottom = 72.0
+theme = ExtResource( 3 )
+theme_type_variation = "small"
 
 [connection signal="timeout" from="WinCountdownTimer" to="." method="_on_WinCountdownTimer_timeout"]
