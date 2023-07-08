@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 var direction = Vector2.ZERO
-var speed = 200.0
+var speed = 400.0
 
 func _ready():
 	direction = Vector2(-0.5, 0.5) 

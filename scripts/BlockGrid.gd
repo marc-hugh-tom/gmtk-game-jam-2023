@@ -1,6 +1,6 @@
 extends Node2D
 
-const BLOCK = preload("res://scenes/Block.tscn")
+const BLOCK = preload("res://scenes/BlockBasic.tscn")
 const HALF_SPACING = 3
 # Columns and rows have to be odd
 const COLUMNS = 9
@@ -34,15 +34,15 @@ func delete_block(grid_position):
 		block_matrix[int(grid_position.x)][int(grid_position.y)] = null
 		block.queue_free()
 
-func add_block(grid_position):
+func add_block(grid_position, block_factory):
 	delete_block(grid_position)
-	var block = BLOCK.instance()
+	var block = block_factory.instance()
 	block_matrix[int(grid_position.x)][int(grid_position.y)] = block
 	add_child(block)
 	block.set_global_position(grid_position_to_global_position(grid_position))
 
-func add_block_to_global_position(input_global_position):
-	add_block(global_position_to_grid_position(input_global_position))
+func add_block_to_global_position(input_global_position, block_factory):
+	add_block(global_position_to_grid_position(input_global_position), block_factory)
 
 func snap_to_grid(input_global_position):
 	return(grid_position_to_global_position(global_position_to_grid_position(input_global_position)))
@@ -69,7 +69,7 @@ func get_all_block_global_positions():
 func _init_starting_blocks():
 	for col_idx in range(COLUMNS):
 		for row_idx in range(ROWS):
-			add_block(Vector2(col_idx, row_idx))
+			add_block(Vector2(col_idx, row_idx), BLOCK)
 
 func get_block_count():
 	var count = 0

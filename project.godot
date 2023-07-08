@@ -14,6 +14,10 @@ config/name="gmtk-game-jam-2023"
 run/main_scene="res://scenes/GameState.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Globals="*res://scenes/Globals.tscn"
+
 [global]
 
 gravit=false
