@@ -14,9 +14,11 @@ func _physics_process(delta):
 	if is_instance_valid(collision):
 		direction = direction.bounce(collision.get_normal())
 
-		if collision.get_collider().is_in_group("block"):
-			collision.get_collider().on_collide_with_ball()
-	update()
+		if collision.get_collider().is_in_group("ball_collidable"):
+			collision.get_collider().on_collide_with_ball(self, collision)
+
+func tweak_direction(new_direction):
+	direction = (direction + new_direction).normalized()
 
 func _draw():
 	var center = Vector2(0, 0)
