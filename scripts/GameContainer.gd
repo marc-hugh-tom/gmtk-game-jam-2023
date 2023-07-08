@@ -1,20 +1,17 @@
 extends Node2D
 
-onready var blocks = get_node("blocks")
+onready var block_grid = get_node("BlockGrid")
 onready var paddle = get_node("Paddle")
 onready var ball = get_node("balls/Ball")
 
-const BlockFactory = preload("res://scenes/Block.tscn")
-
 func _ready():
 	$PlacementUI.connect("block_placed", self, "_add_block")
+	$PlacementUI.set_block_grid($BlockGrid)
+	#for position in _get_potential_block_placement_positions():
+	#	_add_block(position)
 
-func _add_block(position):
-	position += $PlacementUI.position
-	if get_block_at(position) == null:
-		var new_block = BlockFactory.instance()
-		new_block.position = position
-		blocks.add_child(new_block)
+func _add_block(input_global_position):
+	block_grid.add_block_to_global_position(input_global_position)
 
 func _process(delta):
 	paddle.set_ball_position(ball.position)
