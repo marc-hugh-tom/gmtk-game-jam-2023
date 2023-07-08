@@ -3,6 +3,9 @@ extends Node2D
 onready var timer_label = $TimerLabel
 onready var win_countdown_timer = $WinCountdownTimer
 
+signal win
+signal lose
+
 func _ready():
 	$GameContainer.connect("no_blocks", self, "_no_blocks_callback")
 	Globals.connect("current_block_changed", self, "current_block_changed")
@@ -14,10 +17,10 @@ func _process(delta):
 	timer_label.text = "%02d:%02d" % [minutes, seconds]
 
 func _on_WinCountdownTimer_timeout():
-	print("win!")
+	emit_signal("win")
 
 func _no_blocks_callback():
-	print("lose")
+	emit_signal("lose")
 
 func current_block_changed():
 	for child in $Current.get_children():
