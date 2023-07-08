@@ -3,33 +3,27 @@ extends Node2D
 signal block_placed
 
 const BLOCK = preload("res://scenes/Block.tscn")
-const BORDER_MARGIN = 60
-const HALF_SPACING = 3
-const COLUMNS = 8
-const ROWS = 10
-
-var block_size
+const INDICATORS = preload("res://scenes/BlockPositionIndicator.tscn")
 
 var guide_block
+var block_grid
 
-func _ready():
+func set_block_grid(input_block_grid):
+	block_grid = input_block_grid
 	guide_block = BLOCK.instance()
 	guide_block.set_collision_layer_bit(0, 0)
 	guide_block.set_collision_mask_bit(0, 0)
-	block_size = (
-		guide_block.get_node("CollisionShape2D").get_shape().get_extents() +
-		Vector2.ONE * HALF_SPACING
-	) * 2
+	guide_block.set_modulate(Color(1.0, 1.0, 1.0, 0.5))
 	add_child(guide_block)
+	for pos in block_grid.get_all_block_global_positions():
+		var indicator = INDICATORS.instance()
+		$Indicators.add_child(indicator)
+		indicator.set_global_position(pos)
 
 func _physics_process(delta):
-	var mouse = get_local_mouse_position()
-	guide_block.set_position(Vector2(
-		clamp(round(mouse.x / block_size.x), -COLUMNS/2, COLUMNS/2) * block_size.x,
-		clamp(round(mouse.y / block_size.y), -ROWS/2, ROWS/2) * block_size.y
-	))
+	var mouse = get_global_mouse_position()
+	guide_block.set_global_position(block_grid.snap_to_grid(mouse))
 
 func _input(event):
 	if event.is_action_pressed("left_click"):
-		emit_signal("block_placed", guide_block.get_position())
-
+		emit_signal("block_placed", guide_block.get_global_position())
