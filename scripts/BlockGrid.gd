@@ -6,6 +6,8 @@ const HALF_SPACING = 3
 const COLUMNS = 9
 const ROWS = 11
 
+const MISSING = 2
+
 var block_matrix = []
 var block_size
 
@@ -69,7 +71,13 @@ func get_all_block_global_positions():
 func _init_starting_blocks():
 	for col_idx in range(COLUMNS):
 		for row_idx in range(ROWS):
-			add_block(Vector2(col_idx, row_idx), BLOCK)
+			if (
+				col_idx >= MISSING and
+				col_idx < COLUMNS - MISSING and
+				row_idx >= MISSING and
+				row_idx < ROWS - MISSING
+			):
+				add_block(Vector2(col_idx, row_idx), BLOCK)
 
 func get_block_count():
 	var count = 0

@@ -18,7 +18,7 @@ func _add_block(input_global_position):
 	Globals.current_block_used()
 
 func _process(delta):
-	paddle.set_ball_position(ball.position)
+	paddle.update_target_x_pos($balls.get_children())
 	if $BlockGrid.get_block_count() == 0:
 		if not lost:
 			lost = true
