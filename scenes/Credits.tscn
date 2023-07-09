@@ -1,8 +1,19 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scripts/Credits.gd" type="Script" id=1]
 [ext_resource path="res://scenes/theme.tres" type="Theme" id=2]
 [ext_resource path="res://assets/sounds/menu_click.wav" type="AudioStream" id=3]
+[ext_resource path="res://scenes/BlockBasic.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/BlockRepulse.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/BlockTough.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/BlockSpawn.tscn" type="PackedScene" id=7]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://assets/fonts/origa___.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 22
+font_data = SubResource( 1 )
 
 [node name="Credits" type="Node2D"]
 script = ExtResource( 1 )
@@ -25,5 +36,49 @@ text = "BACK"
 
 [node name="menu_click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 167.0
+margin_top = 175.0
+margin_right = 987.0
+margin_bottom = 351.0
+theme = ExtResource( 2 )
+theme_type_variation = "small"
+custom_fonts/font = SubResource( 2 )
+text = "DESIGN, ART, CODE - MARC JONES & TOM CRAVEN
+
+USING GODOT ENGINE - godotengine.org/
+
+Music composed by Bert Cole - bitbybitsound.com"
+
+[node name="BlockRepulse" parent="." instance=ExtResource( 5 )]
+position = Vector2( 97, 175 )
+should_emit = true
+
+[node name="BlockTough3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 897, 350 )
+
+[node name="BlockBasic" parent="." instance=ExtResource( 4 )]
+position = Vector2( 197, 82 )
+
+[node name="BlockRepulse3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 341, 399 )
+should_emit = true
+
+[node name="BlockSpawn2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 137, 514 )
+
+[node name="BlockRepulse2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 838, 466 )
+should_emit = true
+
+[node name="BlockSpawn" parent="." instance=ExtResource( 7 )]
+position = Vector2( 659, 380 )
+
+[node name="BlockTough" parent="." instance=ExtResource( 6 )]
+position = Vector2( 819, 117 )
+
+[node name="BlockTough2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 76, 368 )
 
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]

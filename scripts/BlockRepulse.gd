@@ -5,6 +5,11 @@ extends StaticBody2D
 #func _init(type):
 #	pass
 
+export(bool) var should_emit = false
+
+func _ready():
+	$CPUParticles2D.emitting = should_emit
+
 func on_collide_with_ball(ball, collision):
 	# emit_signal("block_collide" [self.type])
 	queue_free()

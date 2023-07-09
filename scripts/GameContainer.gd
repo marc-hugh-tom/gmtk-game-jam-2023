@@ -41,3 +41,7 @@ func add_new_ball():
 	new_ball.position = $Paddle.position - Vector2(0, 30)
 	new_ball.direction = Vector2(randf() - 0.5, -1)
 	$balls.call_deferred("add_child", new_ball)
+
+
+func _on_BlockGrid_spawn_ball(pos):
+	add_new_ball()

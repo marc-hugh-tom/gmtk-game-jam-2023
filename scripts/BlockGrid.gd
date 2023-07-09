@@ -11,6 +11,8 @@ const MISSING = 2
 var block_matrix = []
 var block_size
 
+signal spawn_ball
+
 func _ready():
 	# Establish size of a block with spacing
 	var guide_block = BLOCK.instance()
@@ -50,6 +52,10 @@ func delete_block(grid_position):
 func add_block(grid_position, block_factory):
 	delete_block(grid_position)
 	var block = block_factory.instance()
+	
+	if "spawner" in block.get_groups():
+		block.connect("spawn_ball", self, "on_spawn_ball")
+	
 	block_matrix[int(grid_position.x)][int(grid_position.y)] = block
 	add_child(block)
 	block.set_global_position(grid_position_to_global_position(grid_position))
@@ -97,3 +103,6 @@ func get_block_count():
 		if is_instance_valid(child) and child.is_in_group("ball_collidable"):
 			count += 1
 	return(count)
+
+func on_spawn_ball(pos):
+	emit_signal("spawn_ball", pos)

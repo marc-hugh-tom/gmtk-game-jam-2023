@@ -23,6 +23,11 @@ var BLOCK_TYPES = [
 		"Repulse\nblock",
 		0.2
 	],
+	[
+		preload("res://scenes/BlockBallSpawn.tscn"),
+		"Spawn\nblock",
+		0.5
+	],
 ]
 
 var block_cum_probs = [0.0]

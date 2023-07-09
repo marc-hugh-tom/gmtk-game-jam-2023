@@ -91,3 +91,5 @@ shape = SubResource( 5 )
 
 [node name="life_lost" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
+
+[connection signal="spawn_ball" from="BlockGrid" to="." method="_on_BlockGrid_spawn_ball"]
