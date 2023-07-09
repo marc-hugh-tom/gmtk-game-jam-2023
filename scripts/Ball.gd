@@ -8,7 +8,6 @@ const NUMBER_OF_RAYCASTS = 2
 
 
 func _ready():
-	direction = Vector2(-0.5, 0.5)
 	for _i in range(NUMBER_OF_RAYCASTS):
 		var new_ray = RayCast2D.new()
 		new_ray.enabled = true
