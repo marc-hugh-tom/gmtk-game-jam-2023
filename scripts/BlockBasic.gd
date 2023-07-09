@@ -8,3 +8,6 @@ extends StaticBody2D
 func on_collide_with_ball(ball, collision):
 	# emit_signal("block_collide" [self.type])
 	queue_free()
+
+func block_grid_ref(block_grid):
+	pass

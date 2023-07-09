@@ -12,6 +12,11 @@ var BLOCK_TYPES = [
 		preload("res://scenes/BlockTough.tscn"),
 		"Better\nblock",
 		0.5
+	],
+	[
+		preload("res://scenes/BlockSpawn.tscn"),
+		"Builder\nblock",
+		0.5
 	]
 ]
 

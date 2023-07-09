@@ -27,6 +27,17 @@ func _ready():
 	# Initialise starting blocks
 	_init_starting_blocks()
 
+func test_valid_grid_pos(grid_position):
+	return(
+		0 <= int(grid_position.x) and int(grid_position.x) < COLUMNS and
+		0 <= int(grid_position.y) and int(grid_position.y) < ROWS
+	)
+
+func test_grid_pos_empty(grid_position):
+	if not test_valid_grid_pos(grid_position):
+		return(false)
+	return(not is_instance_valid(get_block(grid_position)))
+
 func get_block(grid_position):
 	return(block_matrix[int(grid_position.x)][int(grid_position.y)])
 
@@ -42,6 +53,7 @@ func add_block(grid_position, block_factory):
 	block_matrix[int(grid_position.x)][int(grid_position.y)] = block
 	add_child(block)
 	block.set_global_position(grid_position_to_global_position(grid_position))
+	block.block_grid_ref(self)
 
 func add_block_to_global_position(input_global_position, block_factory):
 	add_block(global_position_to_grid_position(input_global_position), block_factory)
