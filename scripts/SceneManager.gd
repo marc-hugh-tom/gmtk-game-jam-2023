@@ -12,13 +12,25 @@ const CENTRE = Vector2(512, 300)
 func _ready():
 	pause_mode = PAUSE_MODE_PROCESS
 	deferred_start_menu()
+	play_menu_music()
 
 # Start first level
 func play():
 	initiate_fade_to_black("deferred_start_level")
 
+func play_menu_music():
+	if !$keep/menu_music.playing:
+		$keep/menu_music.play()
+		$keep/game_music.stop()
+
+func play_game_music():
+	if !$keep/game_music.playing:
+		$keep/menu_music.stop()
+		$keep/game_music.play()
+
 func deferred_start_level():
 	clear_scene()
+	play_game_music()
 	var game = game_scene.instance()
 	game.connect("win", self, "start_win_screen")
 	game.connect("lose", self, "start_lose_screen")
@@ -32,6 +44,7 @@ func start_menu():
 
 func deferred_start_menu():
 	clear_scene()
+	play_menu_music()
 	var menu = menu_scene.instance()
 	menu.connect("play", self, "play")
 	menu.connect("start_credits", self, "start_credits")
@@ -45,6 +58,7 @@ func start_credits():
 
 func deferred_start_credits():
 	clear_scene()
+	play_menu_music()
 	var credits = credits_scene.instance()
 	credits.connect("start_menu", self, "start_menu")
 	add_child(credits)
@@ -57,6 +71,7 @@ func start_win_screen():
 
 func deferred_start_win_screen():
 	clear_scene()
+	play_menu_music()
 	var win = win_scene.instance()
 	win.connect("start_menu", self, "start_menu")
 	add_child(win)
@@ -69,6 +84,7 @@ func start_lose_screen():
 
 func deferred_start_lose_screen():
 	clear_scene()
+	play_menu_music()
 	var lose = lose_scene.instance()
 	lose.connect("start_menu", self, "start_menu")
 	add_child(lose)
@@ -77,7 +93,8 @@ func deferred_start_lose_screen():
 # Transition functions
 func clear_scene():
 	for child in get_children():
-		child.free()
+		if child.name != "keep":
+			child.free()
 
 func initiate_fade_to_black(input_callback_str):
 	var transition = scene_transition.instance()

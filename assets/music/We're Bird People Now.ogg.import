@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/We're Bird People Now.ogg-fdd3f1e3c9856b828d79dc442b80d6c3.oggstr"
+
+[deps]
+
+source_file="res://assets/music/We're Bird People Now.ogg"
+dest_files=[ "res://.import/We're Bird People Now.ogg-fdd3f1e3c9856b828d79dc442b80d6c3.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

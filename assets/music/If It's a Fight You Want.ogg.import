@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/If It's a Fight You Want.ogg-36442ec87d654bc403877ea2b2c44e46.oggstr"
+
+[deps]
+
+source_file="res://assets/music/If It's a Fight You Want.ogg"
+dest_files=[ "res://.import/If It's a Fight You Want.ogg-36442ec87d654bc403877ea2b2c44e46.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
