@@ -32,6 +32,7 @@ func _input(event):
 			emit_signal("block_placed", guide_block.get_global_position())
 			update_guide_block()
 			start_countdown()
+			$block_placed.play()
 
 func update_guide_block():
 	if is_instance_valid(guide_block):

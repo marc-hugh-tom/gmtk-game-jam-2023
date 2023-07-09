@@ -34,6 +34,7 @@ func body_entered_ball_catcher(body):
 		if num_balls <= 1:
 			add_new_ball()
 			emit_signal("life_lost")
+			$life_lost.play()
 
 func add_new_ball():
 	var new_ball = ball_factory.instance()

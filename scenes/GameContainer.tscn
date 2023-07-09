@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scripts/GameContainer.gd" type="Script" id=1]
+[ext_resource path="res://assets/sounds/lost_life.wav" type="AudioStream" id=2]
 [ext_resource path="res://scenes/PlacementUI.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Paddle.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scripts/BlockGrid.gd" type="Script" id=5]
@@ -87,3 +88,6 @@ collision_layer = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BallCatcher"]
 position = Vector2( 512, 608 )
 shape = SubResource( 5 )
+
+[node name="life_lost" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )

@@ -28,12 +28,16 @@ func play_game_music():
 		$keep/menu_music.stop()
 		$keep/game_music.play()
 
+func on_ball_bounce():
+	$keep/ball_bounce.play()
+
 func deferred_start_level():
 	clear_scene()
 	play_game_music()
 	var game = game_scene.instance()
 	game.connect("win", self, "start_win_screen")
 	game.connect("lose", self, "start_lose_screen")
+	game.connect("ball_bounce", self, "on_ball_bounce")
 	add_child(game)
 	initiate_fade_to_transparent("remove_transition_overlay")
 

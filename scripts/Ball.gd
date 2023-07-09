@@ -22,6 +22,7 @@ func _physics_process(delta):
 		set_direction(direction.bounce(collision.get_normal()))
 		if collision.get_collider().is_in_group("ball_collidable"):
 			collision.get_collider().on_collide_with_ball(self, collision)
+		$bounce.play()
 	update_raycasts()
 
 func tweak_direction(new_direction):
