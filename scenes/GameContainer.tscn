@@ -48,6 +48,7 @@ margin_left = -16.0
 margin_top = -300.0
 margin_right = 16.0
 margin_bottom = 300.0
+color = Color( 1, 0.968627, 0.972549, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/left"]
 shape = SubResource( 2 )
@@ -60,6 +61,7 @@ margin_left = -16.0
 margin_top = -300.0
 margin_right = 16.0
 margin_bottom = 300.0
+color = Color( 1, 0.968627, 0.972549, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/right"]
 shape = SubResource( 3 )
@@ -72,6 +74,7 @@ margin_left = -448.0
 margin_top = -16.0
 margin_right = 448.0
 margin_bottom = 16.0
+color = Color( 1, 0.968627, 0.972549, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/top"]
 shape = SubResource( 1 )

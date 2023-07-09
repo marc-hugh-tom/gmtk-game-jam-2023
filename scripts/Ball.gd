@@ -64,7 +64,7 @@ func _draw():
 	var radius = 10
 	var angle_from = 0
 	var angle_to = 360
-	var color = Color( 1, 0.854902, 0.72549, 1 )
+	var color = Color("#ffda45")
 	
 	var nb_points = 32
 	var points_arc = PoolVector2Array()

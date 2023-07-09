@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/GameContainer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/GameState.gd" type="Script" id=2]
 [ext_resource path="res://scenes/theme.tres" type="Theme" id=3]
+[ext_resource path="res://assets/sprites/ball.png" type="Texture" id=4]
 
 [sub_resource type="Theme" id=1]
 
@@ -21,9 +22,9 @@ position = Vector2( -65, 0 )
 
 [node name="TimerLabel" type="Label" parent="."]
 margin_left = 912.0
-margin_top = 91.0
-margin_right = 1077.0
-margin_bottom = 148.0
+margin_top = 32.0
+margin_right = 1024.0
+margin_bottom = 64.0
 theme = SubResource( 1 )
 custom_fonts/font = SubResource( 2 )
 
@@ -33,13 +34,13 @@ one_shot = true
 autostart = true
 
 [node name="CurrentContainer" type="VBoxContainer" parent="."]
-margin_left = 916.0
-margin_top = 227.0
-margin_right = 1007.0
-margin_bottom = 299.0
+margin_left = 913.0
+margin_top = 128.0
+margin_right = 1025.0
+margin_bottom = 208.0
 
 [node name="CurrentLabel" type="Label" parent="CurrentContainer"]
-margin_right = 91.0
+margin_right = 112.0
 margin_bottom = 17.0
 theme = ExtResource( 3 )
 theme_type_variation = "small"
@@ -47,7 +48,7 @@ text = "CURRENT"
 
 [node name="Container" type="Control" parent="CurrentContainer"]
 margin_top = 21.0
-margin_right = 91.0
+margin_right = 112.0
 margin_bottom = 51.0
 rect_min_size = Vector2( 30, 30 )
 
@@ -56,20 +57,20 @@ position = Vector2( 43, 13 )
 
 [node name="CurrentDescription" type="Label" parent="CurrentContainer"]
 margin_top = 55.0
-margin_right = 91.0
+margin_right = 112.0
 margin_bottom = 72.0
 theme = ExtResource( 3 )
 theme_type_variation = "small"
 
 [node name="NextContainer" type="VBoxContainer" parent="."]
-margin_left = 911.0
-margin_top = 368.0
-margin_right = 1002.0
-margin_bottom = 440.0
+margin_left = 912.0
+margin_top = 256.0
+margin_right = 1025.0
+margin_bottom = 336.0
 theme = ExtResource( 3 )
 
 [node name="NextLabel" type="Label" parent="NextContainer"]
-margin_right = 91.0
+margin_right = 113.0
 margin_bottom = 17.0
 theme = ExtResource( 3 )
 theme_type_variation = "small"
@@ -77,7 +78,7 @@ text = "NEXT"
 
 [node name="Container" type="Control" parent="NextContainer"]
 margin_top = 21.0
-margin_right = 91.0
+margin_right = 113.0
 margin_bottom = 51.0
 rect_min_size = Vector2( 30, 30 )
 
@@ -86,9 +87,44 @@ position = Vector2( 43, 13 )
 
 [node name="NextDescription" type="Label" parent="NextContainer"]
 margin_top = 55.0
-margin_right = 91.0
+margin_right = 113.0
 margin_bottom = 72.0
 theme = ExtResource( 3 )
 theme_type_variation = "small"
+
+[node name="LivesContainer" type="VBoxContainer" parent="."]
+margin_left = 912.0
+margin_top = 512.0
+margin_right = 1025.0
+margin_bottom = 592.0
+theme = ExtResource( 3 )
+
+[node name="LivesLabel" type="Label" parent="LivesContainer"]
+margin_right = 113.0
+margin_bottom = 17.0
+theme = ExtResource( 3 )
+theme_type_variation = "small"
+text = "Lives"
+
+[node name="Container" type="Control" parent="LivesContainer"]
+margin_top = 21.0
+margin_right = 113.0
+margin_bottom = 51.0
+rect_min_size = Vector2( 30, 30 )
+
+[node name="0" type="Sprite" parent="LivesContainer/Container"]
+position = Vector2( 7, 18 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 4 )
+
+[node name="1" type="Sprite" parent="LivesContainer/Container"]
+position = Vector2( 47, 18 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 4 )
+
+[node name="2" type="Sprite" parent="LivesContainer/Container"]
+position = Vector2( 87, 18 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 4 )
 
 [connection signal="timeout" from="WinCountdownTimer" to="." method="_on_WinCountdownTimer_timeout"]
