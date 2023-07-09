@@ -6,7 +6,7 @@ var BLOCK_TYPES = [
 	[
 		preload("res://scenes/BlockBasic.tscn"),
 		"Rubbish\nblock",
-		1.0
+		0.9
 	],
 	[
 		preload("res://scenes/BlockTough.tscn"),
@@ -16,7 +16,7 @@ var BLOCK_TYPES = [
 	[
 		preload("res://scenes/BlockSpawn.tscn"),
 		"Builder\nblock",
-		0.5
+		0.2
 	],
 	[
 		preload("res://scenes/BlockRepulse.tscn"),
@@ -26,7 +26,7 @@ var BLOCK_TYPES = [
 	[
 		preload("res://scenes/BlockBallSpawn.tscn"),
 		"Spawn\nblock",
-		0.5
+		0.2
 	],
 ]
 
